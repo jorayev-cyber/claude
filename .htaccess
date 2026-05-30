@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# Xavfsizlik
+Options -Indexes
+ServerSignature Off
+
+# Config papkasini himoyalash
+<Files "config/*">
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+# Error pages
+ErrorDocument 404 /claude/pages/404.php
+ErrorDocument 403 /claude/pages/403.php
+
+# PHP settings
+php_value upload_max_filesize 10M
+php_value post_max_size 12M
+php_value max_execution_time 300
